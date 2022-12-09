@@ -1,0 +1,19 @@
+--- ~/CMakeLists.txt
++++ ~/CMakeLists.txt
+@@ -106,16 +106,9 @@
+ 	add_compile_definitions(SUNSHINE_PLATFORM="linux")
+ 	list(APPEND SUNSHINE_DEFINITIONS APPS_JSON="apps_linux.json")
+ 
+-	find_package(X11)
+ 	find_package(PipeWire)
+ 	find_package(FFMPEG REQUIRED)
+ 
+-	if(X11_FOUND)
+-		include_directories(${X11_INCLUDE_DIR})
+-		list(APPEND PLATFORM_TARGET_FILES
+-			sunshine/platform/linux/display.cpp)
+-	endif()
+-
+ 	if(PIPEWIRE_FOUND)
+ 		find_package(GLIB REQUIRED)
+ 		find_package(Gio REQUIRED)
